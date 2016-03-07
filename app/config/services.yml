@@ -4,6 +4,11 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    app.twig_extension.lorem_ipsum_extension:
+        class: AppBundle\Twig\Extension\LoremIpsumExtension
+        arguments: [@app.api.lorem_api]
+        tags:
+            - { name: twig.extension }
+
+    app.api.lorem_api:
+        class: AppBundle\Api\LoremApi
