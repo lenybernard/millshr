@@ -12,3 +12,8 @@ services:
 
     app.api.lorem_api:
         class: AppBundle\Api\LoremApi
+
+    app.twig_extention.ttc_extention:
+        class: AppBundle\Twig\Extension\TTCExtension
+        tags:
+            - { name: twig.extension }
