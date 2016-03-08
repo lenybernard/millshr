@@ -2,12 +2,34 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>
+            {% block title %}
+                Welcome!
+            {% endblock title %}
+        </title>
+        {% block stylesheets %}
+        <link rel="stylesheet" type="image/css" href="{{ asset('bundles/app/bootstrap/3.3.6/css/bootstrap.min.css') }}" />
+        <link rel="stylesheet" type="image/css" href="{{ asset('bundles/app/font-awesome/4.5.0/css/font-awesome.min.css') }}" />
+        <link rel="stylesheet" type="image/css" href="{{ asset('bundles/app/style/style.css') }}" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block body %}
+            <div id="wrapper">
+                <div id="container">
+                    <div id="welcome">
+                        {% block body_title %}<i class="fa fa-2x fa-rocket"></i>
+                        {% endblock body_title %}
+                        {% block body_content %}
+                        {% endblock body_content %}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('bundles/app/script/script.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('bundles/app/bootstrap/3.3.6/js/bootstrap.min.js') }}"></script>
+        {% endblock %}
     </body>
 </html>

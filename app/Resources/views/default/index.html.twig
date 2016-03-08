@@ -1,12 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <div id="wrapper">
-        <div id="container">
-            <div id="welcome">
-                <h1>Yo!</h1>
-                <div>{{ lorem() }}</div>
-            </div>
-        </div>
-    </div>
-{% endblock %}
+{% block body_title %}
+    {{ parent() }}
+    <h1>Yo!</h1>
+{% endblock body_title %}
+
+{% block body_content %}
+    {% include "default/list.html.twig" %}
+    {% include "default/lorem.html.twig" %}
+{% endblock body_content %}
