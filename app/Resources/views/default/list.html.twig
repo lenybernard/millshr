@@ -1,0 +1,7 @@
+{% for  item in list %}
+    <li>
+        <a href="{{ item.url }}">{{ item.name }}</a>
+        <br>
+        Le {{ item.date|date("m/d/Y") }}
+    </li>
+{% endfor %}

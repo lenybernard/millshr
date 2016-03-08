@@ -15,6 +15,26 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        return $this->render('default/index.html.twig', []);
+        $list =[
+            [
+                'author' => 'Mike',
+                'name' => '1 link',
+                'url' => 'http://www.google.fr',
+                'date' => new \DateTime()
+            ],[
+                'author' => 'Paulo',
+                'name' => '2 link',
+                'url' => 'http://www.google.ci',
+                'date' => new \DateTime()
+            ],[
+                'author' => 'Marcel',
+                'name' => '3 link',
+                'url' => 'http://www.google.eu',
+                'date' => new \DateTime()
+            ]
+        ];
+        return $this->render('default/index.html.twig', [
+            'list' => $list
+        ]);
     }
 }
