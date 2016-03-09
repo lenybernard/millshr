@@ -7,10 +7,8 @@ td, th {
 }
 
 .addLinks {
-    margin-left: 46%;
-    margin-top: 2em;
+  text-align: center;
 }
-
 a:hover {
-    text-decoration: none;
-}
+     text-decoration: none;
+ }

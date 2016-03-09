@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Nouveau Lien</h1>
-
-    {{ form_start(form) }}
-    <div class="col-lg-11">
-        {{ form_widget(form) }}
-        <input class="btn btn-primary col-md-offset-7"type="submit" value="Create" />
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Nouveau Lien</h1>
+        </div>
     </div>
-    {{ form_end(form) }}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            {{ form_start(form) }}
+
+
+            {{ form_widget(form) }}
+            <input class="btn btn-primary col-md-offset-7" type="submit" value="Create"/>
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+    <div class="row">
+        <div class="col-md-1 col-md-offset-6">
             <a class="btn btn-default" href="{{ path('link_index') }}">Back to the list</a>
+        </div>
+    </div>
 {% endblock %}
