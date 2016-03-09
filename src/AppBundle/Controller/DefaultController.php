@@ -18,30 +18,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $items = [
-            [
-                'author' => 'Mike',
-                'name' => 'my link',
-                'url' => 'http://mylink',
-                'createdAt' => new \DateTime(),
-            ],
-            [
-                'author' => 'Samantha',
-                'name' => 'my awesome link',
-                'url' => 'http://myawesomelink',
-                'createdAt' => new \DateTime(),
-            ],
-            [
-                'author' => 'Brandon',
-                'name' => 'my poor link',
-                'url' => 'http://mypoorlink',
-                'createdAt' => new \DateTime(),
-            ]
-        ];
-        shuffle($items);
+        $links = $this->getDoctrine()->getManager()->getRepository('AppBundle:Link')
+            ->findSince(new \DateTime('-3 days'));
 
         return [
-            'links' => $items
+            'links' => $links
         ];
     }
 }
