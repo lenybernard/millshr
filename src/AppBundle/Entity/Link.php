@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Link
@@ -23,7 +24,7 @@ class Link
 
     /**
      * @var string
-     *
+     * @Assert\NotNull()
      * @ORM\Column(name="name", type="string", length=55)
      */
     private $name;
@@ -31,6 +32,7 @@ class Link
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="category", type="string", length=255)
      */
     private $category;
@@ -38,13 +40,17 @@ class Link
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;
 
+//     * @Assert\Regex("/^(http|https):\/\/facebook.com/", match="false")
     /**
      * @var string
      *
+     * @Assert\NotNull()
+     * @Assert\Url()
      * @ORM\Column(name="url", type="string", length=255)
      */
     private $url;
@@ -52,6 +58,7 @@ class Link
     /**
      * @var \DateTime
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="createdAt", type="datetime")
      */
     private $createdAt;
@@ -180,5 +187,14 @@ class Link
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Validate the url is not from facebook
+     * @Assert\IsTrue(message="Ne partagez pas de liens Facebook.")
+     */
+    public function isNotFromFacebook()
+    {
+        return !preg_match('/^https?:\/\/(www.)?facebook.com/', $this->getUrl());
     }
 }
