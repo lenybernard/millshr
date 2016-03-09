@@ -3,15 +3,15 @@
 {% block body %}
     <h1>Link list</h1>
 
-    <table>
+    <table class="col-md-offset-1 table-striped col-md-10">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>Nom du Lien</th>
                 <th>Categorie</th>
-                <th>Author</th>
+                <th>Auteur</th>
                 <th>Url</th>
-                <th>Createdat</th>
+                <th>Date de création</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -38,10 +38,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('link_new') }}">Create a new entry</a>
-        </li>
-    </ul>
+    <a class="btn btn-default col-md-offset-10" href="{{ path('link_new') }}">Ajouter un Lien</a>
 {% endblock %}

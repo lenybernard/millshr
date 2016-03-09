@@ -18,8 +18,8 @@ class DefaultController extends Controller
         $list =[
             [
                 'author' => 'Mike',
-                'name' => '1 link',
-                'url' => 'http://www.google.fr',
+                'name' => 'Links',
+                'url' => 'http://millshr.dev/app_dev.php/link',
                 'date' => new \DateTime()
             ],[
                 'author' => 'Paulo',

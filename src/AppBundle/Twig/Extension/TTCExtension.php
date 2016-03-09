@@ -18,7 +18,7 @@ class TTCExtension extends \Twig_Extension
     public function getFilters ()
     {
         return array(
-            new \Twig_SimpleFilter('ttc',array($this, 'calculateprice'))
+            new \Twig_SimpleFilter('ttc',array($this, 'calculateTtc'))
         );
     }
 

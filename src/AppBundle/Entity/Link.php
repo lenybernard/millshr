@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Link
@@ -15,6 +16,7 @@ class Link
     /**
      * @var int
      *
+     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -24,6 +26,7 @@ class Link
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -31,6 +34,7 @@ class Link
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="categorie", type="string", length=255)
      */
     private $categorie;
@@ -38,6 +42,7 @@ class Link
     /**
      * @var string
      *
+     * @Assert\NotNull()
      * @ORM\Column(name="author", type="string", length=255)
      */
     private $author;
@@ -45,6 +50,8 @@ class Link
     /**
      * @var string
      *
+     * @Assert\Regex(pattern="/https?\:\/\/(www.)?facebook.[a-zA-Z]+/", match=false, message="Impossible d'entrer une URL Facebook")
+     * @Assert\NotNull()
      * @ORM\Column(name="url", type="string", length=255)
      */
     private $url;
