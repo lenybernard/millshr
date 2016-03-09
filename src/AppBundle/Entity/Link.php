@@ -5,7 +5,9 @@ namespace AppBundle\Entity;
 use AppBundle\Constraint\AvoidStress;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Timestampable\Traits\TimestampableEntity;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Link
@@ -16,6 +18,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Link
 {
+    use TimestampableEntity;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -34,6 +38,7 @@ class Link
      * @var string
      * @Assert\NotNull()
      * @ORM\Column(name="name", type="string", length=55)
+     * @Gedmo\Translatable
      */
     private $name;
 
@@ -63,13 +68,6 @@ class Link
      */
     private $url;
 
-    /**
-     * @var \DateTime
-     *
-     * @Assert\NotNull()
-     * @ORM\Column(name="createdAt", type="datetime")
-     */
-    private $createdAt;
 
     /**
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", cascade={"persist"})
@@ -177,29 +175,6 @@ class Link
     public function getUrl()
     {
         return $this->url;
-    }
-
-    /**
-     * Set createdAt
-     *
-     * @param \DateTime $createdAt
-     * @return Link
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
     }
 
     /**

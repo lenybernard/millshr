@@ -35,10 +35,6 @@ class LinkType extends AbstractType
             ])
             ->add('tags')
             ->add('author')
-            ->add('createdAt', DateType::class, [
-                'widget' => 'single_text',
-                'html5' => true,
-            ])
         ;
     }
     
