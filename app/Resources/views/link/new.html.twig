@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Link creation</h1>
+    <h1>Nouveau Lien</h1>
 
     {{ form_start(form) }}
     <div class="col-lg-11">
@@ -9,5 +9,5 @@
         <input class="btn btn-primary col-md-offset-7"type="submit" value="Create" />
     </div>
     {{ form_end(form) }}
-            <button type="button" class="btn btn-default"><a href="{{ path('link_index') }}">Back to the list</a></button>
+            <a class="btn btn-default" href="{{ path('link_index') }}">Back to the list</a>
 {% endblock %}

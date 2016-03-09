@@ -2,6 +2,7 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Link;
 use Doctrine\ORM\EntityRepository;
 
 /**
@@ -12,4 +13,25 @@ use Doctrine\ORM\EntityRepository;
  */
 class LinkRepository extends EntityRepository
 {
+    /**
+     * @param \DateTime $date
+     *
+     * @return Link[]
+     */
+    public function findSince(\DateTime $date) {
+        return $this->getSinceQueryBuilder($date)
+                    ->getQuery()
+                    ->getResult();
+    }
+
+    /**
+     * @param \DateTime $date
+     *
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    protected function getSinceQueryBuilder(\DateTime $date) {
+        return $this->createQueryBuilder('link')
+            ->where('link.createdAt > :date')
+            ->setParameter('date', $date);
+    }
 }

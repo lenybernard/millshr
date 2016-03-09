@@ -1,7 +1,10 @@
-{% for  item in list %}
+{% for item in list %}
     <li>
-        <a href="{{ item.url }}">{{ item.name }}</a>
-        <br>
-        Le {{ item.date|date("m/d/Y") }}
+        <a href="{{ item.url }}">{{ item.name }}</a>&nbsp;
+        <a href="{{ path('link_edit', {'id': item.id}) }}" class="btn btn-xs">
+            <i class="fa fa-pencil"></i>
+        </a>
+        <br/>
+        le {{ item.createdAt|date('d/m/Y') }}
     </li>
 {% endfor %}
