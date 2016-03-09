@@ -8,7 +8,6 @@
             {% endblock title %}
         </title>
         {% block stylesheets %}
-        <link rel="stylesheet" type="text/css" href="/bundles/app/bootstrap/3.3.6/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/bootstrap/3.3.6/css/bootstrap.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/font-awesome/4.5.0/css/font-awesome.min.css') }}" />
         <link rel="stylesheet" type="text/css" href="{{ asset('bundles/app/style/style.css') }}" />
@@ -19,12 +18,20 @@
         {% block body %}
             <div id="wrapper">
                 <div id="container">
-                    <div id="welcome">
-                        {% block body_title %}<i class="fa fa-2x fa-rocket"></i>
-                        {% endblock body_title %}
+                    <header id="welcome">
+                        <div class="container">
+                            {% block body_title %}
+                            {% endblock body_title %}
+                        </div>
+                    </header>
+                    <section class="container" id="content">
                         {% block body_content %}
                         {% endblock body_content %}
-                    </div>
+                    </section>
+                    <footer class="container" id="footer">
+                        {% block body_footer %}
+                        {% endblock body_footer %}
+                    </footer>
                 </div>
             </div>
         {% endblock %}

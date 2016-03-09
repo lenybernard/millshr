@@ -1,43 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block body_title %}
     <h1>Link list</h1>
+{% endblock body_title %}
+{% block body_content %}
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Author</th>
-                <th>Url</th>
-                <th>Createdat</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for link in links %}
-            <tr>
-                <td><a href="{{ path('link_show', { 'id': link.id }) }}">{{ link.id }}</a></td>
-                <td>{{ link.name }}</td>
-                <td>{{ link.category }}</td>
-                <td>{{ link.author }}</td>
-                <td>{{ link.url }}</td>
-                <td>{% if link.createdAt %}{{ link.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('link_show', { 'id': link.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('link_edit', { 'id': link.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    {% include "default/list.html.twig" %}
 
     <ul>
         <li>

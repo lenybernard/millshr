@@ -97,7 +97,7 @@ class LinkController extends Controller
 
         return $this->render('link/edit.html.twig', array(
             'link' => $link,
-            'edit_form' => $editForm->createView(),
+            'form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }

@@ -1,4 +1,15 @@
-h1 {
-    font-size: 40px;
-    text-shadow: 5px 5px 5px red;
+header#welcome {
+    background: #333333;
+}
+
+header#welcome img {
+    height: 30px;
+    padding: 7px;
+}
+header#welcome h1 {
+    color: white;
+}
+
+section#content {
+    padding: 15px 0;
 }
