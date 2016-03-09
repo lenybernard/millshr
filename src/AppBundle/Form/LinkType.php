@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -28,7 +29,10 @@ class LinkType extends AbstractType
                 ],
                 'help_block' => 'Ne partagez pas de liens facebook',
             ])
-            ->add('category')
+            ->add('category', EntityType::class, [
+                'class' => 'AppBundle\Entity\Category',
+                'property' => 'name'
+            ])
             ->add('author')
             ->add('createdAt', DateType::class, [
                 'widget' => 'single_text',

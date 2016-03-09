@@ -32,10 +32,10 @@ class Link
     private $name;
 
     /**
-     * @var string
+     * @var Category
      *
      * @Assert\NotNull()
-     * @ORM\Column(name="category", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="link")
      */
     private $category;
 
@@ -101,11 +101,11 @@ class Link
 
     /**
      * Set category
+     * @param Category $category
      *
-     * @param string $category
      * @return Link
      */
-    public function setCategory($category)
+    public function setCategory(Category $category)
     {
         $this->category = $category;
 
@@ -115,7 +115,7 @@ class Link
     /**
      * Get category
      *
-     * @return string 
+     * @return Category
      */
     public function getCategory()
     {
