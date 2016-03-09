@@ -33,6 +33,7 @@ class LinkType extends AbstractType
                 'class' => 'AppBundle\Entity\Category',
                 'property' => 'name'
             ])
+            ->add('tags')
             ->add('author')
             ->add('createdAt', DateType::class, [
                 'widget' => 'single_text',

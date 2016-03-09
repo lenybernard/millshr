@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use AppBundle\Constraint\AvoidStress;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -15,6 +16,11 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Link
 {
+    public function __construct()
+    {
+        $this->tags = new ArrayCollection();
+    }
+
     /**
      * @var int
      *
@@ -65,6 +71,11 @@ class Link
      */
     private $createdAt;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", cascade={"persist"})
+     * @ORM\JoinTable(name="tags_links") 
+     */
+    private $tags;
 
     /**
      * Get id
@@ -198,5 +209,21 @@ class Link
     public function isNotFromFacebook()
     {
         return !preg_match('/^https?:\/\/(www.)?facebook.com/', $this->getUrl());
+    }
+
+    /**
+     * @return Tag[]
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * @param Tag[] $tags
+     */
+    public function setTags($tags)
+    {
+        $this->tags = $tags;
     }
 }
