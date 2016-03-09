@@ -3,6 +3,8 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -15,11 +17,23 @@ class LinkType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('url')
+            ->add('name', null, [
+                'label' => 'Nom du lien',
+                'required' => true,
+                'help_label' => 'Voici un message d\'aide',
+            ])
+            ->add('url', null, [
+                'attr' => [
+                    'novalidate' => true
+                ],
+                'help_block' => 'Ne partagez pas de liens facebook',
+            ])
             ->add('category')
             ->add('author')
-            ->add('createdAt', 'datetime')
+            ->add('createdAt', DateType::class, [
+                'widget' => 'single_text',
+                'html5' => true,
+            ])
         ;
     }
     
