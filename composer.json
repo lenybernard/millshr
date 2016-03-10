@@ -24,7 +24,8 @@
         "mopa/bootstrap-bundle": "^3.0",
         "lexik/translation-bundle": "~3.1",
         "gedmo/doctrine-extensions": "^2.4",
-        "stof/doctrine-extensions-bundle": "^1.2"
+        "stof/doctrine-extensions-bundle": "^1.2",
+        "friendsofsymfony/user-bundle": "~2.0@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
