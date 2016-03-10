@@ -14,3 +14,11 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
     prefix: /{_locale}
+
+# redirecting the root
+root:
+    path: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /fr
+        permanent: true
