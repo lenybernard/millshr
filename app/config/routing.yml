@@ -1,3 +1,7 @@
+app_category:
+    resource: "@AppBundle/Controller/CategoryController.php"
+    type:     annotation
+
 # app/config/routing.yml
 lexik_translation_edition:
     resource: "@LexikTranslationBundle/Resources/config/routing.yml"

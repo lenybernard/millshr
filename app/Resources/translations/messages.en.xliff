@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="1">
         <source><![CDATA[greeting.welcome.message]]></source>
-        <target><![CDATA[Welcome]]></target>
+        <target><![CDATA[Good Morning]]></target>
       </trans-unit>
     </body>
   </file>

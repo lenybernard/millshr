@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Category
@@ -26,6 +27,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=15)
+     * @Gedmo\Translatable
      */
     private $name;
 
@@ -33,6 +35,7 @@ class Category
      * @var string
      *
      * @ORM\Column(name="color", type="string", length=10)
+     * @Gedmo\Translatable
      */
     private $color;
 
