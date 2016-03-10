@@ -68,17 +68,16 @@ class Link
      */
     private $url;
 
-
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", cascade={"persist"})
-     * @ORM\JoinTable(name="tags_links") 
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", inversedBy="link")
+     * @ORM\JoinTable(name="links_tags")
      */
-    private $tags;
+    protected $tags;
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
